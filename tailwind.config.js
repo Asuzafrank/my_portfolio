@@ -8,6 +8,9 @@ export default {
       },
       borderRadius:{
         '3xl': '30px'
+      },
+      width:{
+        '13': '400px'
       }
     },
   },
