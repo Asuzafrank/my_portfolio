@@ -36,12 +36,12 @@ const toggleMenu = () => {
 
         <!-- Mobile Menu -->
         <div v-if="openMenu" class="navs md:hidden space-y-5 p-5">
-            <router-link to="/" class="text-white text-sm block">Home</router-link>
-            <router-link to="/about" class="text-white text-sm block">About</router-link>
-            <router-link to="/service" class="text-white text-sm block">Service</router-link>
-            <router-link class="text-white text-sm block">Resume</router-link>
-            <router-link class="text-white text-sm block">Project</router-link>
-            <router-link to="/contact" class="text-white text-sm block">Contact</router-link>
+            <router-link to="/" :class="[activeLink('/') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">Home</router-link>
+                <router-link to="/about" :class="[activeLink('/about') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">About</router-link>
+                <router-link to="/service" :class="[activeLink('/service') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">Service</router-link>
+    
+                
+                <router-link to="/contact" :class="[activeLink('/contact') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">Contact</router-link>
         </div>
     </nav>
 </template>
