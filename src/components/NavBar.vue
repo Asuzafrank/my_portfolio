@@ -1,5 +1,12 @@
 <script setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute()
+
+const activeLink = (routepath) => {
+    return routepath === route.path 
+}
 
 const openMenu = ref(false);
 
@@ -15,13 +22,12 @@ const toggleMenu = () => {
                 <p class="text-white text-md font-bold md:hidden">*Asuza Frankline*</p>
             </div>
             <div class="navs hidden md:flex space-x-16">
-                <router-link to="/" class="text-white text-sm">Home</router-link>
-                <router-link to="/about" class="text-white text-sm">About</router-link>
-                <router-link to="/service" class="text-white text-sm">Service</router-link>
+                <router-link to="/" :class="[activeLink('/') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">Home</router-link>
+                <router-link to="/about" :class="[activeLink('/about') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">About</router-link>
+                <router-link to="/service" :class="[activeLink('/service') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">Service</router-link>
                 <p class="text-white text-md font-bold">*Asuza Frankline*</p>
-                <router-link class="text-white text-sm">Resume</router-link>
-                <router-link class="text-white text-sm">Project</router-link>
-                <router-link class="text-white text-sm">Contact</router-link>
+                
+                <router-link to="/contact" :class="[activeLink('/contact') ? 'text-orange-500 underline underline-offset-4':'text-sm text-white']">Contact</router-link>
             </div>
             
                 <i class="pi pi-bars w-5 h-5 md:hidden text-white cursor-pointer" @click="toggleMenu"></i>
@@ -35,7 +41,7 @@ const toggleMenu = () => {
             <router-link to="/service" class="text-white text-sm block">Service</router-link>
             <router-link class="text-white text-sm block">Resume</router-link>
             <router-link class="text-white text-sm block">Project</router-link>
-            <router-link class="text-white text-sm block">Contact</router-link>
+            <router-link to="/contact" class="text-white text-sm block">Contact</router-link>
         </div>
     </nav>
 </template>
